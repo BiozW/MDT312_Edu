@@ -1,6 +1,5 @@
 window.onload = loginLoad;
 function loginLoad(){
-	
 }
 
 function checkLogin(){
