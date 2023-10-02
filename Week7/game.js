@@ -25,7 +25,7 @@ function timeStart() {
         clearInterval(timer);
         x.innerHTML = "You Win!!!";
         clearScreen();
-      } else if (remainingTime === 0 && allbox.length > 0) {
+      } else if (remainingTime === 0 || remainingTime < 0 && allbox.length > 0) {
         clearInterval(timer);
         x.innerHTML = "You're Loser";
         clearScreen();
@@ -47,8 +47,8 @@ function addBox() {
     var tempbox = document.createElement('div');
     tempbox.className = 'square';
     tempbox.id = "box" + i;
-    tempbox.style.left = Math.random() * (500 - 25) + "px";
-    tempbox.style.top = Math.random() * (500 - 25) + "px";
+    tempbox.style.left = Math.random() * (100-10) + "%";
+    tempbox.style.top = Math.random() * (250 - 35) + "px";
     tempbox.style.backgroundColor = colorDrop;
     // Add element to HTML node
     gameLayer.appendChild(tempbox);
