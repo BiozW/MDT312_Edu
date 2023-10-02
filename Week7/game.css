@@ -1,0 +1,92 @@
+body{
+    background: rgb(32, 168, 109);
+}
+legend{
+    padding: 10px;
+    text-align: left;
+    font-size: 48pt;
+    color: aliceblue;
+}
+fieldset
+{
+    text-align: center;
+    color: aliceblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 20px;
+    border-radius: 25px;
+    border-color: aliceblue;
+    font-size: 24pt;
+}
+
+#start{
+    width: 40%;
+    font-size: 24px;
+    font-family: 'Gill Sans MT';
+    background-color: aliceblue;
+    border-radius: 10px;
+    border-color: aliceblue;
+}
+
+#numbox{
+    text-align: center;
+    font-family: 'Gill Sans MT';
+    font-size: 24px;
+    border-radius: 10px;
+    border-color: aliceblue;
+}
+
+#color{
+    font-size: 24px;
+    border-radius: 10px;
+    font-family: 'Gill Sans MT';
+    text-align: center;
+    border-color: aliceblue;
+}
+
+#timerClock{
+    font-size: 48pt;
+    margin: 10px;
+    text-align: center;
+}
+
+#clock{
+    background-color: aliceblue;
+    color: rgb(32, 168, 109);
+    margin-top: 10px;
+    font-family: 'Gill Sans MT';
+    border-radius: 25px;
+    border: 5px solid aliceblue;
+}
+
+#container {
+	margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#layer {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    border-radius: 25px;
+    border: 3px solid white;
+    background-color: aliceblue;
+}
+
+.square {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 5 px;
+}
+
+.maroon{
+    background-color: maroon; 
+}
+.lightgreen{
+    background-color: lightgreen; 
+}
+
+.magenta{
+    background-color: magenta; 
+}
