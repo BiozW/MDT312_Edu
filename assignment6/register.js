@@ -7,13 +7,16 @@ function pageLoad(){
 }
 
 function validateForm() {
-    var a = document.getElementById('passwordA');
-    var b = document.getElementById('passwordB');
+    var a = document.forms["myForm"]["password"][0];
+    var b = document.forms["myForm"]["password"][1];
 
-    if (a.value != b.value)
+    if (a.value == b.value)
     {
-        alert("กรอกไม่ถูกเว้ย")
-        document.getElementById('errormsg')
+    }
+    else
+    {
+        alert("กรอกไม่ถูกเว้ย");
+        document.getElementById('errormsg').innerHTML = "รหัสไม่ตรงโว้ยยยย";
         return false;
     }
 
