@@ -12,7 +12,7 @@ function startGame() {
 function timeStart() {
     var TIMER_TICK = 1000;
     var timer = null;
-    var seconds = 1*parseInt(document.getElementById('numbox').value); // Set the game timer to 10 seconds
+    var seconds = 30; // Set the game timer to 10 seconds
     var x = document.getElementById('clock');
     var remainingTime = seconds;
 
