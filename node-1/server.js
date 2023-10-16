@@ -1,10 +1,10 @@
-console.log('i am first');
+// console.log('i am first');
 
-setTimeout(() => {
-  console.log('i am second');
-}, 0);
+// setTimeout(() => {
+//   console.log('i am second');
+// }, 0);
 
-console.log('i am third');
+// console.log('i am third');
 
 // arrow function
 // function hello(){
@@ -120,31 +120,31 @@ console.log('i am third');
 // readData().then(writeData).then((out) => console.log(out));
 
 // read and write json file
-// const fs = require('fs');
-// const readData = () => {
-//     return new Promise((resolve,reject) => {
-//         fs.readFile('jfile.json','utf8', (err, data) => {
-//             if (err) 
-//                 reject(err);
-//             else
-//             {
-//                 console.log(data);
-//                 resolve(data);
-//             }
+const fs = require('fs');
+const readData = () => {
+    return new Promise((resolve,reject) => {
+        fs.readFile('jfile.json','utf8', (err, data) => {
+            if (err) 
+                reject(err);
+            else
+            {
+                console.log(data);
+                resolve(data);
+            }
                 
-//         });
-//     })
-// }
+        });
+    })
+}
 
-// const writeData = (data) => {
-//     return new Promise((resolve, reject) => {
-//         fs.writeFile('new_jfile.json', data , (err) => {
-//             if (err) 
-//                 reject(err);
-//             else
-//                 resolve("saved!")
-//         });
-//     })
-// }
+const writeData = (data) => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('new_jfile.json', data , (err) => {
+            if (err) 
+                reject(err);
+            else
+                resolve("saved!")
+        });
+    })
+}
 
-// readData().then(writeData).then((out) => console.log(out));
+readData().then(writeData).then((out) => console.log(out));
