@@ -1,3 +1,5 @@
+const { rejects } = require('assert');
+const { Console } = require('console');
 const fs = require('fs');
 const http = require('http');
 
@@ -7,26 +9,29 @@ const port = 3000;
 
 const server = http.createServer((req, res) => {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    readMsg((data) => {
-        res.write(data);
-        res.end();
-    });
+    readMsg().then(editJson).then(writeMsg).then(out => {res.write(out);
+        res.end} );
   });
 
-let readMsg = (callback) => {
+let readMsg = () => {
+    return new Promise((resolve,rejects ) => {
     fs.readFile('cloth1.json', 'utf8', (err, data) => {
         if (err) {
-            console.error(err);
-            callback('Error reading the file');
+            rejects(err);
         } else {
-            callback(data);
+            resolve(data);
         }
     });
+})
 }
 
 
 // จำนวนเสื้อผ้าตามที่กำหนด
 let editJson = (data) => { 
+    return new Promise((resolve)=>
+    {
+    var data1 = JSON.parse(data);
+    var keys = Object.keys(data1);
     const stock = {
         item1: 12,
         item2: 13,
@@ -38,26 +43,24 @@ let editJson = (data) => {
         item8: 29,
         item9: 10
     }
-    fs.writeFile('cloth1.json', JSON.stringify(stock), 'utf8', (err) => {
-        if (err) {
-            console.error(err);
-            callback('Error writing the file');
-        } else {
-            writeMsg(stock, callback);
-        }
-    });
-
+    for(let i =0; i<keys.length;i++)
+    {
+      data1[keys[i]]["stock"] = stock[keys[i]];
+    }
+    resolve(JSON.stringify(data1));
+    })
 }
 
-let writeMsg = () =>{
-    fs.writeFile('new_cloth.json', JSON.stringify(data), 'utf8', (err) => {
+let writeMsg = (data) =>{
+    return new Promise((resolve,rejects ) => {
+    fs.writeFile('new_cloth.json', JSON.stringify(data), (err) => {
         if (err) {
-            console.error(err);
-            callback('Error writing the new file');
+            rejects(err);
         } else {
-            callback(null);
+            resolve(data);
         }
     });
+})
 }
 
 server.listen(port, hostname, () => {
