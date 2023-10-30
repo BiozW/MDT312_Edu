@@ -34,16 +34,39 @@ function sendMsg(){
 
 //ทำให้สมบูรณ์
 const writeLog = (async (msg) => {
-	// body: JSON.stringify({
-	// 	time: d.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
-	// 	user:username,
-	// 	message:msg});
-	
+	 //body: JSON.stringify({
+	 	//time: d.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+	 	//user:username,
+	 	//message:msg});
+		 try {
+			const d = new Date();
+			const response = await fetch('your_server_endpoint', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					time: d.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+					user: username,
+					message: msg
+				})
+			});
+			const data = await response.json();
+			// Handle the response if needed
+		} catch (error) {
+			console.error("Error:", error);
+		}
 });
 
 //ทำให้สมบูรณ์
 const readLog = (async () => {
-	
+	try {
+        const response = await fetch('your_server_chat_log_endpoint');
+        const data = await response.json();
+        postMsg(data); // Call function to display the received log
+    } catch (error) {
+        console.error("Error:", error);
+    }
 })
 
 // รับ msg ที่เป็น JS object ที่อ่านมาได้จาก file
