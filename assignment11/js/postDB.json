@@ -1,10 +1,54 @@
 {
-	"post1":{
-		"user":"mario",
-		"message":"สวัสดีวันฮาโลวีน"
-	},
-	"post2":{
-		"user":"luigi",
-		"message":"hello world"
-	}
+  "post1": {
+    "user": "mario",
+    "message": "สวัสดีวันฮาโลวีน"
+  },
+  "post2": {
+    "user": "luigi",
+    "message": "hello world"
+  },
+  "post3": {
+    "user": "yoshi",
+    "message": "สวัสดี"
+  },
+  "post4": {
+    "user": "mario",
+    "message": "ไฟำฟหก"
+  },
+  "post5": {
+    "user": "mario",
+    "message": "ฟหกฟหก"
+  },
+  "post6": {
+    "user": "mario",
+    "message": "กฟห"
+  },
+  "post7": {
+    "user": "yoshi",
+    "message": "sadfs"
+  },
+  "post8": {
+    "user": "yoshi",
+    "message": "safas"
+  },
+  "post9": {
+    "user": "mario",
+    "message": "safasf"
+  },
+  "post10": {
+    "user": "mario",
+    "message": "agsag"
+  },
+  "post11": {
+    "user": "mario",
+    "message": "ฟหเฟห"
+  },
+  "post12": {
+    "user": "yoshi",
+    "message": "ฟหดเฟ"
+  },
+  "post13": {
+    "user": "yoshi",
+    "message": "หฟดฟหดฟด"
+  }
 }

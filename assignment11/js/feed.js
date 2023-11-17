@@ -32,6 +32,8 @@ function pageLoad(){
 	showImg('img/'+getCookie('img'));
 	readPost();
 }
+// อัปเดตข้อมูลทุก 2 วิ
+setInterval(readPost,2000);
 
 function getData(){
 	var msg = document.getElementById("textmsg").value;
@@ -48,6 +50,7 @@ function fileSubmit(){
 }
 
 // แสดงรูปในพื้นที่ที่กำหนด
+//ไม่มีแก้
 function showImg(filename){
 	if (filename !==""){
 		var showpic = document.getElementById('displayPic');
@@ -60,19 +63,34 @@ function showImg(filename){
 
 // อ่าน post จาก file
 // complete it
+// อ่าน .json
 async function readPost(){
-	
+	const read_log = await fetch("/readPost");
+	const res_data = await read_log.json()
+	showPost(res_data);
 }
 
 // เขียน post ใหม่ ลงไปใน file
 // complete it
 async function writePost(msg){
-	
+	let response = await fetch("/writePost",{
+		method:"POST",
+		headers:{
+			'Accept':'application/json',
+			'Content-Type':'application/json'
+		},
+		body: JSON.stringify({
+			user:getCookie("username"),
+			message:msg
+			})
+		});
 }
 
 // แสดง post ที่อ่านมาได้ ลงในพื้นที่ที่กำหนด
+//ไม่มีแก้
 function showPost(data){
 	var keys = Object.keys(data);
+	//ให้อยู่ใน feed-container
 	var divTag = document.getElementById("feed-container");
 	divTag.innerHTML = "";
 	for (var i = keys.length-1; i >=0 ; i--) {
@@ -86,7 +104,7 @@ function showPost(data){
 		temp.appendChild(temp1);
 		var temp1 = document.createElement("div");
 		temp1.className = "postuser";
-		
+		//ดึงชื่อจาก user จาก postDB ไม่ใช่ username จาก userDB Noooo อย่าสับสนนะเหวบคนต่อไป
 		temp1.innerHTML = "Posted by: "+data[keys[i]]["user"];
 		temp.appendChild(temp1);
 		
